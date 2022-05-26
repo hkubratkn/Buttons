@@ -1,0 +1,44 @@
+import android.os.Bundle
+import android.widget.Toast
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.*
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import com.example.exampleeee.ui.theme.ExampleeeeTheme
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            ExampleeeeTheme {
+                Surface(color = MaterialTheme.colors.background){
+                    Column(
+                        modifier = Modifier.fillMaxSize(),
+                        verticalArrangement = Arrangement.Center,
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ){
+                        val checkedState = remember {mutableStateOf(false)}
+
+                        Switch(
+                            checked = checkedState.value,
+                            onCheckedChange = {checkedState.value = it},
+                            colors = SwitchDefaults.colors(Color.Green)
+                        )
+                        
+                        if(checkedState.value){
+                            Toast.makeText(this@MainActivity, "on", Toast.LENGTH_LONG).show()
+                        }else {
+                            Toast.makeText(this@MainActivity, "off", Toast.LENGTH_LONG).show()
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
+}
