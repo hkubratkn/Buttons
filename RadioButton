@@ -1,0 +1,26 @@
+   Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(dimensionResource(id = R.dimen.padding_50))
+                .background(Color.LightGray),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center
+        ){
+            RadioButton(
+                selected = selectedGender == MALE,
+                onClick = {selectedGender = MALE},
+                colors = RadioButtonDefaults.colors(MaterialTheme.colors.primary)
+            )
+            Spacer(modifier = Modifier.size(dimensionResource(id = R.dimen.padding_16)))
+            Text(text = MALE)
+
+            Spacer(modifier = Modifier.size(dimensionResource(id = R.dimen.padding_16)))
+
+            RadioButton(
+                selected = selectedGender == FEMALE,
+                onClick = {selectedGender = FEMALE},
+                colors = RadioButtonDefaults.colors(MaterialTheme.colors.primary)
+            )
+            Spacer(modifier = Modifier.size(dimensionResource(id = R.dimen.padding_16)))
+            Text(text = FEMALE)
+        }
