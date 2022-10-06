@@ -1,0 +1,16 @@
+  Button(
+            modifier = Modifier.fillMaxWidth(),
+            enabled = buttonState,
+            shape = RoundedCornerShape(dimensionResource(id = R.dimen.padding_8)),
+            elevation = ButtonDefaults.elevation(
+                defaultElevation = dimensionResource(id = R.dimen.padding_6),
+                pressedElevation = dimensionResource(id = R.dimen.padding_8),
+                disabledElevation = dimensionResource(id = R.dimen.padding_0)
+            ),
+            onClick = {
+                buttonState = false
+                //viewModel.signin(email = email, password = password)
+            }
+        ) {
+            Text(text = stringResource(id = R.string.signin))
+        }
